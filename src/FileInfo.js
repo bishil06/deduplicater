@@ -46,7 +46,8 @@ export default class FileInfo {
 
         if (len !== 0 && start > await this.getSize()) {
             // 파일전체를 읽었는지 확인
-            this.calcFinish = true;
+            // console.log(this.hashList);
+            this.calcFinish = Buffer.concat(this.hashList).toString();
             return false;
         }
 
