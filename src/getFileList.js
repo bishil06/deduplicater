@@ -1,7 +1,12 @@
 import fsPromises from 'fs/promises';
 import pathModule from 'path';
+import isReadableFile from './isReadableFile.js';
 
-async function *crawFile(path) {
+export async function *crawFile(path) {
+    if (await isReadableFile(path) !== true) {
+        console.log(`${path} is not readable directory`);
+        return;
+    }
     const fileList =  await fsPromises.readdir(path, { withFileTypes: true }).catch(err => console.error(`readdir() error ${path} ${err}`));
     for(const dirent of fileList) {
         if (dirent.isDirectory()) {
