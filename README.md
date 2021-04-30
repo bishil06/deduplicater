@@ -1,30 +1,48 @@
 # deduplicater
 CLI Remove Duplicate File
 
-# 테스트
+# How to use
+## find 명령어
+```
+node app.js find --src "path1 path2 path3 ..."
+ex) node app.js find --src="./src/__tests__/testFiles ./src/__tests__/testFiles2 ./src/__tests__/testFiles3"
+-------------------------------------
+실행결과
+중복파일 검색 명령어가 실행되었습니다.
+[
+  './src/__tests__/testFiles',
+  './src/__tests__/testFiles2',
+  './src/__tests__/testFiles3'
+] 스캔 시작
+Scan: ./src/__tests__/testFiles
+Scan: ./src/__tests__/testFiles2
+Scan: ./src/__tests__/testFiles3
+Found: 16 files
+Duplicate File List
+ - src/__tests__/testFiles3/g copy.txt
+ - src/__tests__/testFiles3/g.txt
+ - src/__tests__/testFiles/b copy.txt
+ - src/__tests__/testFiles/b.txt
+ - src/__tests__/testFiles/a copy 2.txt
+ - src/__tests__/testFiles/a copy 3.txt
+ - src/__tests__/testFiles/a copy.txt
+ - src/__tests__/testFiles/a.txt
+ - src/__tests__/testFiles/c copy.txt
+ - src/__tests__/testFiles/c.txt
+ - src/__tests__/testFiles2/d copy.txt
+ - src/__tests__/testFiles2/d.txt
+ - src/__tests__/testFiles2/e copy.txt
+ - src/__tests__/testFiles2/e.txt
+Duplicate Found: 14 files
+```
+
+# Test
 ```
 npm run test
- PASS  src/__tests__/getStat.test.js
-  getStat
-    ✓ getStat readable file (5 ms)
-    ✓ getStat not readable file
-
- PASS  src/__tests__/isReadable.test.js
-  isReadableFile
-    ✓ isReadableFile readable file
-    ✓ isReadableFile not readable file
-
-Test Suites: 2 passed, 2 total
-Tests:       4 passed, 4 total
-Snapshots:   0 total
-Time:        0.33 s, estimated 1 s
-Ran all test suites.
+-------------------------------------
 ```
 
-# 사용법
-기능 개발중
-
 # 개발중인 기능들
-- [ ] 부분적으로 hash값을 계산해서 반환하는 제너레이터
+- [x] 부분적으로 hash값을 계산해서 반환기능 -> FileInfo class
 - [ ] 파일 중복 검사 모듈
 - [ ] cli 입력 처리 모듈
