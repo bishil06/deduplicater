@@ -43,7 +43,9 @@ export default class FileInfo {
 
         const start = this.byte*Math.pow(2,len-1);
         const end = this.byte*Math.pow(2,len)-1;
-        if (start > await this.getSize()) {
+
+        if (len !== 0 && start > await this.getSize()) {
+            // 파일전체를 읽었는지 확인
             this.calcFinish = true;
             return false;
         }
