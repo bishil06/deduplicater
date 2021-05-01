@@ -1,6 +1,8 @@
 # deduplicater
 CLI Remove Duplicate File
 
+![기본알고리즘](./deduplicator.png)
+
 # How to use
 ## find 명령어
 ```
@@ -44,5 +46,5 @@ npm run test
 
 # 개발중인 기능들
 - [x] 부분적으로 hash값을 계산해서 반환기능 -> FileInfo class
-- [ ] 파일 중복 검사 모듈
-- [ ] cli 입력 처리 모듈
+- [x] 파일 중복 검사 모듈 -> isSameFile - findDupFiles
+- [x] cli 입력 처리 모듈 -> cli.js
