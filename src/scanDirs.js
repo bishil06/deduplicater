@@ -56,7 +56,7 @@ export async function getDupFileMapList(classifyIList) {
 }
 
 export default async function scanDirs(...dirPaths) {
-    dirPaths.forEach(p => console.log(`Scan: ${p}`));
+    console.log(dirPaths, '스캔 시작');
     return getAllFileInfoList(...dirPaths)
         .then(allFileInfoList => {
             console.log(`Found: ${allFileInfoList.length} files`);
@@ -66,12 +66,14 @@ export default async function scanDirs(...dirPaths) {
         .then(getDupFileMapList)
         .then(dupFilesList => {
             let dupCount = 0;
+            let fileCount = 0;
             console.log('Duplicate File List');
             for(const m of dupFilesList) {
+                fileCount += 1;
                 for(const [k, s] of m) {
                     dupCount += s.size;
                     for(const fileInfo of s) {
-                        console.log(` - ${fileInfo.getPath()}`);
+                        console.log(` - ${fileCount} ${fileInfo.getPath()}`);
                     }
                 }
             }
