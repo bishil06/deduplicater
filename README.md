@@ -1,6 +1,12 @@
 # deduplicater
 CLI Remove Duplicate File
 
+# 개발 목표
+* 단순한 아키텍처
+* 확장성
+* 병렬성
+
+# 기본 알고리즘 
 ![기본알고리즘](./deduplicator.png)
 
 # How to use
