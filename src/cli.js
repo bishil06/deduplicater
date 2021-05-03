@@ -1,5 +1,4 @@
 import yargs from 'yargs';
-import glob from 'glob';
 import scanDirs from './scanDirs.js';
 
 yargs.version('0.0.1');
@@ -9,12 +8,8 @@ yargs.command({
     describe: '--src="/test, /test2, ..." \n 중복파일 검색 명렁어 입니다.',
     handler: (argv) => {
         const dirs = argv.src.split(' ');
-        glob('./src/*',(err, matches) => {
-            console.log(matches);
-        })
         console.log('중복파일 검색 명령어가 실행되었습니다.');
         scanDirs(...dirs);
-        
     },
     builder: {
         src: {
